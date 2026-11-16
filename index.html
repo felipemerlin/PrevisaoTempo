@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel do Tempo</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="logo">
+            <span class="logo-icone">☀</span>
+            <h1>Painel do Tempo</h1>
+        </div>
+
+        <p>Consulte as condições meteorológicas de qualquer lugar do mundo.</p>
+
+        <div class="status-api">
+            <span class="status-ponto"></span>
+            Dados meteorológicos atualizados pela internet
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="pesquisa">
+            <h2>Como está o tempo hoje?</h2>
+            <p>Digite o nome de uma cidade para consultar o clima.</p>
+
+            <form id="formPesquisa">
+                <div class="campo-pesquisa">
+                    <span class="lupa">⌕</span>
+
+                    <input
+                        type="text"
+                        id="cidade"
+                        placeholder="Ex: São Paulo, Londres, Paris..."
+                        autocomplete="off"
+                        aria-label="Nome da cidade"
+                    >
+
+                    <button type="submit" id="botaoPesquisar">
+                        Pesquisar
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <div id="mensagem" class="mensagem" role="status" aria-live="polite">
+            <span class="mensagem-icone">🌤️</span>
+            <h3>Pesquise uma cidade</h3>
+            <p>As informações meteorológicas aparecerão aqui.</p>
+        </div>
+
+        <section id="painelClima" class="painel-clima escondido">
+
+            <div class="clima-principal">
+
+                <div class="localizacao">
+                    <span class="icone-localizacao">⌖</span>
+
+                    <div>
+                        <h2 id="nomeCidade">Cidade</h2>
+                        <p id="regiaoCidade">País</p>
+                    </div>
+                </div>
+
+                <div class="temperatura-area">
+                    <div class="icone-clima" id="iconeClima">
+                        ☀️
+                    </div>
+
+                    <div class="temperatura">
+                        <span id="temperatura">--</span>
+                        <span class="graus">°C</span>
+                    </div>
+                </div>
+
+                <h3 id="descricaoClima">Condição climática</h3>
+
+                <p class="atualizacao">
+                    Atualizado às <span id="horarioAtualizacao">--:--</span>
+                </p>
+
+            </div>
+
+            <div class="titulo-detalhes">
+                <h2>Detalhes do clima</h2>
+                <p>Informações meteorológicas atuais</p>
+            </div>
+
+            <div class="detalhes">
+
+                <div class="cartao">
+                    <div class="cartao-topo">
+                        <span class="cartao-icone">🌡️</span>
+                        <span class="cartao-label">Sensação térmica</span>
+                    </div>
+
+                    <h3 id="sensacao">--°C</h3>
+                    <p>Temperatura percebida</p>
+                </div>
+
+                <div class="cartao">
+                    <div class="cartao-topo">
+                        <span class="cartao-icone">💧</span>
+                        <span class="cartao-label">Umidade do ar</span>
+                    </div>
+
+                    <h3 id="umidade">--%</h3>
+                    <p>Umidade relativa</p>
+                </div>
+
+                <div class="cartao">
+                    <div class="cartao-topo">
+                        <span class="cartao-icone">💨</span>
+                        <span class="cartao-label">Velocidade do vento</span>
+                    </div>
+
+                    <h3 id="vento">-- km/h</h3>
+                    <p>Vento a 10 metros de altura</p>
+                </div>
+
+                <div class="cartao">
+                    <div class="cartao-topo">
+                        <span class="cartao-icone">☁️</span>
+                        <span class="cartao-label">Condição atual</span>
+                    </div>
+
+                    <h3 id="condicaoDetalhe">--</h3>
+                    <p>Condição meteorológica</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <div id="carregando" class="carregando escondido" role="status">
+            <div class="spinner"></div>
+            <p>Consultando informações meteorológicas...</p>
+        </div>
+
+    </main>
+
+    <footer class="rodape">
+        <p>Painel do Tempo © 2026</p>
+        <p>Dados fornecidos pela API Open-Meteo</p>
+    </footer>
+
+</body>
+</html>
